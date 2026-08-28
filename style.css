@@ -1,5 +1,5 @@
 /* ==========================================
-   ALLIED DIGITAL LIBRARY - FULL ANIMATION THEME
+   ALLIED DIGITAL LIBRARY - RESPONSIVE DESKTOP & MOBILE
    Style: Cyber-Anime, Pop Arcade & Power-Up VFX
 ========================================== */
 
@@ -20,6 +20,10 @@
     --text-muted: #a3b1cc;
     
     --anim-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Layout Constants */
+    --container-max-width: 1200px;
+    --content-padding: 0 24px;
 }
 
 * {
@@ -43,6 +47,9 @@ body {
     background-size: 32px 32px;
     background-position: 0 0, 16px 16px;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ==========================================
@@ -112,22 +119,23 @@ body {
 }
 
 /* ==========================================
-   HEADER & HERO BRANDING
+   HEADER & LOGO
 ========================================== */
 
 header {
     background: linear-gradient(135deg, #161b33 0%, #2a1147 50%, #0d1326 100%);
     text-align: center;
-    padding: 44px 20px 32px;
+    padding: 48px 24px 36px;
     border-bottom: 3px solid var(--neon-pink);
     box-shadow: 0 10px 30px rgba(255, 42, 133, 0.25);
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .logo-box {
-    max-width: 1100px;
-    margin: auto;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
     position: relative;
     display: inline-block;
 }
@@ -156,7 +164,7 @@ header {
 
 .logo-circle {
     display: inline-block;
-    font-size: 50px;
+    font-size: 54px;
     position: relative;
     z-index: 1;
     cursor: pointer;
@@ -175,9 +183,9 @@ header h1 {
     position: relative;
     z-index: 1;
     font-family: 'Outfit', sans-serif;
-    font-size: 38px;
+    font-size: 42px;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     background: linear-gradient(90deg, #00f0ff, #ff2a85, #ffe600);
     -webkit-background-clip: text;
@@ -189,10 +197,10 @@ header h1 {
     position: relative;
     z-index: 1;
     color: #e0e7ff;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-top: 4px;
+    letter-spacing: 1px;
+    margin-top: 6px;
 }
 
 /* ==========================================
@@ -200,18 +208,18 @@ header h1 {
 ========================================== */
 
 nav {
-    margin: 24px auto 0;
+    margin: 28px auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     background: rgba(22, 27, 51, 0.95);
-    padding: 10px 18px;
+    padding: 10px 24px;
     border-radius: 50px;
-    max-width: 900px;
+    max-width: fit-content;
     border: 2px solid var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
     backdrop-filter: blur(10px);
 }
 
@@ -219,29 +227,31 @@ nav a {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 700;
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 30px;
     transition: all 0.25s var(--anim-ease-bounce);
-    font-size: 14px;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    display: inline-block;
 }
 
 nav a:hover {
     background: var(--neon-cyan);
     color: #0c0f1d;
-    transform: translateY(-3px) scale(1.08);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 15px var(--neon-cyan);
 }
 
 /* ==========================================
-   HERO / MAIN SECTIONS
+   HERO / MAIN SECTIONS (DESKTOP OPTIMIZED)
 ========================================== */
 
 .hero {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 36px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 40px 48px;
     background: var(--surface);
     border-radius: 24px;
     border: 2px solid var(--border-glow);
@@ -265,21 +275,22 @@ nav a:hover {
 .hero h2 {
     font-family: 'Outfit', sans-serif;
     color: var(--neon-cyan);
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .hero h3 {
-    margin-top: 20px;
-    margin-bottom: 8px;
+    margin-top: 24px;
+    margin-bottom: 10px;
     color: var(--neon-pink);
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .hero p {
     color: var(--text-muted);
     font-size: 16px;
+    max-width: 950px;
 }
 
 /* ==========================================
@@ -287,9 +298,10 @@ nav a:hover {
 ========================================== */
 
 .search-section {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 36px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 40px 24px;
     background: var(--surface);
     border-radius: 24px;
     border: 2px solid var(--border-glow);
@@ -299,7 +311,7 @@ nav a:hover {
 
 #bookSearch {
     width: 100%;
-    max-width: 750px;
+    max-width: 650px;
     padding: 16px 24px;
     background: var(--surface-light);
     border: 2px solid var(--border-glow);
@@ -309,6 +321,7 @@ nav a:hover {
     font-family: inherit;
     outline: none;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 #bookSearch:focus {
@@ -326,7 +339,7 @@ button {
     cursor: pointer;
     background: linear-gradient(135deg, #ff2a85, #ff7300);
     color: #ffffff;
-    padding: 12px 26px;
+    padding: 12px 28px;
     border-radius: 14px;
     font-size: 15px;
     font-weight: 700;
@@ -338,6 +351,9 @@ button {
     transition: all 0.15s var(--anim-ease-bounce);
     position: relative;
     user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover {
@@ -361,10 +377,11 @@ button:disabled {
 
 #searchButton {
     width: 100%;
-    max-width: 750px;
-    margin-top: 16px;
+    max-width: 650px;
+    margin: 16px auto 0;
     background: linear-gradient(135deg, #00f0ff, #7000ff);
     box-shadow: 0 5px 0 #005f73, 0 10px 20px rgba(0, 240, 255, 0.35);
+    display: block;
 }
 
 #searchButton:hover {
@@ -376,23 +393,24 @@ button:disabled {
 }
 
 /* ==========================================
-   CATEGORY GRID
+   CATEGORY GRID (DESKTOP/LAPTOP AUTO-FIT)
 ========================================== */
 
 .categories {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 0 16px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: var(--content-padding);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .category-card {
-    min-height: 140px;
+    min-height: 160px;
     background: var(--surface);
     border-radius: 20px;
-    padding: 22px 14px;
+    padding: 24px 18px;
     border: 2px solid var(--border-glow);
     cursor: pointer;
     text-align: center;
@@ -408,68 +426,73 @@ button:disabled {
     transform: translateY(-8px) rotate(-1.5deg) scale(1.04);
     border-color: var(--neon-yellow);
     background: var(--surface-light);
-    box-shadow: 0 10px 25px rgba(255, 230, 0, 0.25), 0 0 0 2px var(--neon-yellow);
+    box-shadow: 0 12px 28px rgba(255, 230, 0, 0.25), 0 0 0 2px var(--neon-yellow);
 }
 
 .category-card .icon {
-    font-size: 38px;
-    margin-bottom: 8px;
+    font-size: 42px;
+    margin-bottom: 10px;
     transition: transform 0.3s var(--anim-ease-bounce);
 }
 
 .category-card:hover .icon {
-    transform: scale(1.25) rotate(8deg);
+    transform: scale(1.2) rotate(8deg);
 }
 
 .category-card h3 {
     color: var(--neon-cyan);
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .category-card p {
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 13.5px;
+    margin-top: 4px;
 }
 
 /* ==========================================
-   BOOK CARDS
+   BOOK CARDS (DESKTOP GRID)
 ========================================== */
 
 .book-grid {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 0 16px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: var(--content-padding);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 28px;
 }
 
 .book-card {
     background: var(--surface);
-    padding: 24px;
+    padding: 28px;
     border-radius: 20px;
     border: 2px solid var(--border-glow);
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
     transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .book-card:hover {
     transform: translateY(-6px);
     border-color: var(--neon-pink);
-    box-shadow: 0 12px 24px rgba(255, 42, 133, 0.2), 0 0 15px rgba(255, 42, 133, 0.3);
+    box-shadow: 0 12px 24px rgba(255, 42, 133, 0.25), 0 0 15px rgba(255, 42, 133, 0.3);
 }
 
 .book-card h3 {
     color: var(--neon-pink);
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .book-card p {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: 14.5px;
 }
 
 /* ==========================================
@@ -479,45 +502,45 @@ button:disabled {
 .book-mini-card {
     background: var(--surface);
     border-radius: 16px;
-    padding: 18px 20px;
-    margin-bottom: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
     border: 2px solid var(--border-glow);
     transition: transform 0.2s ease;
 }
 
 .book-mini-card:hover {
-    transform: translateX(6px);
+    transform: translateX(8px);
     border-color: var(--neon-cyan);
 }
 
 .book-mini-card h3 {
     color: var(--neon-cyan);
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .book-icon {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .empty-card {
     background: var(--surface-light);
     border: 2px dashed var(--neon-pink);
     border-radius: 20px;
-    padding: 34px 20px;
+    padding: 40px 24px;
     text-align: center;
     color: var(--text-muted);
 }
 
 .empty-card span {
-    font-size: 38px;
+    font-size: 44px;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     animation: floatBob 3s ease-in-out infinite;
 }
 
 .empty-card a {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 12px;
     color: var(--neon-yellow);
     font-weight: 700;
     text-decoration: none;
@@ -530,12 +553,12 @@ button:disabled {
 
 .progress-bar {
     width: 100%;
-    height: 12px;
+    height: 14px;
     background: var(--surface-light);
     border-radius: 20px;
     border: 1px solid var(--border-glow);
     overflow: hidden;
-    margin: 12px 0;
+    margin: 16px 0;
 }
 
 .progress-fill {
@@ -552,13 +575,14 @@ button:disabled {
 
 .reading-time {
     position: sticky;
-    top: 16px;
+    top: 20px;
     z-index: 1000;
-    max-width: 1100px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 24px auto;
     background: rgba(22, 27, 51, 0.9);
     border-radius: 20px;
-    padding: 18px 24px;
+    padding: 20px 32px;
     border: 2px solid var(--neon-cyan);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.3);
     backdrop-filter: blur(12px);
@@ -566,7 +590,7 @@ button:disabled {
 
 #timer {
     font-family: 'Outfit', sans-serif;
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 900;
     letter-spacing: 2px;
     color: var(--neon-yellow);
@@ -578,9 +602,10 @@ button:disabled {
 ========================================== */
 
 .practice-card {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 32px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 36px 44px;
     background: var(--surface);
     border-radius: 24px;
     border: 2px solid var(--border-glow);
@@ -589,23 +614,25 @@ button:disabled {
 
 .question {
     background: var(--surface-light);
-    padding: 22px;
+    padding: 24px;
     border-radius: 16px;
     border-left: 6px solid var(--neon-yellow);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .option {
     display: block;
     width: 100%;
     text-align: left;
-    margin: 12px 0;
+    margin: 14px 0;
+    padding: 14px 20px;
     background: var(--surface-light);
     color: #ffffff;
     border: 2px solid var(--border-glow);
     border-radius: 14px;
     box-shadow: 0 4px 0 var(--border-glow);
+    transition: all 0.2s ease;
 }
 
 .option:hover {
@@ -613,7 +640,7 @@ button:disabled {
     border-color: var(--neon-cyan);
     color: var(--neon-cyan);
     box-shadow: 0 4px 0 var(--neon-cyan);
-    transform: translateX(4px);
+    transform: translateX(6px);
 }
 
 /* ==========================================
@@ -624,16 +651,17 @@ footer {
     background: #080a14;
     color: var(--text-muted);
     text-align: center;
-    padding: 40px 20px;
-    margin-top: 50px;
+    padding: 48px 24px;
+    margin-top: auto;
     border-top: 2px solid var(--neon-purple);
+    width: 100%;
 }
 
 footer a {
     color: var(--neon-pink);
     text-decoration: none;
     font-weight: 700;
-    margin: 0 6px;
+    margin: 0 8px;
 }
 
 footer a:hover {
@@ -642,23 +670,24 @@ footer a:hover {
 }
 
 ul {
-    padding-left: 20px;
+    padding-left: 24px;
 }
 
 li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: var(--text-muted);
 }
 
 pre {
     background: #080a14;
     color: var(--neon-cyan);
-    padding: 20px;
+    padding: 24px;
     border-radius: 16px;
     border: 1px solid var(--border-glow);
     overflow-x: auto;
-    margin: 16px 0;
+    margin: 20px 0;
     font-family: monospace;
+    font-size: 14.5px;
 }
 
 a {
@@ -673,51 +702,112 @@ a:hover {
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN (TABLETS & MOBILE)
+   RESPONSIVE BREAKPOINTS
 ========================================== */
 
-@media (max-width: 860px) {
-    .categories {
-        grid-template-columns: repeat(2, 1fr);
+/* Laptop & Medium Screens (992px to 1200px) */
+@media (max-width: 1200px) {
+    :root {
+        --container-max-width: 960px;
     }
     
+    .categories {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
     .book-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 }
 
-@media (max-width: 600px) {
+/* Tablets & Small Laptops (768px to 991px) */
+@media (max-width: 991px) {
+    :root {
+        --container-max-width: 720px;
+    }
+
     header h1 {
-        font-size: 26px;
-    }
-
-    nav {
-        border-radius: 18px;
-        gap: 6px;
-    }
-
-    nav a {
-        font-size: 12px;
-        padding: 6px 12px;
+        font-size: 34px;
     }
 
     .hero, 
     .search-section, 
     .practice-card {
-        margin: 16px;
-        padding: 20px;
-        box-shadow: 4px 4px 0px rgba(0, 240, 255, 0.3);
+        padding: 30px 24px;
     }
 
-    .categories, 
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile Screens (Under 768px) */
+@media (max-width: 767px) {
+    :root {
+        --content-padding: 0 16px;
+    }
+
+    header {
+        padding: 36px 16px 24px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .logo-circle {
+        font-size: 44px;
+    }
+
+    nav {
+        border-radius: 20px;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .hero, 
+    .search-section, 
+    .practice-card,
+    .reading-time {
+        margin: 20px auto;
+        padding: 22px 18px;
+        border-radius: 18px;
+        box-shadow: 5px 5px 0px rgba(0, 240, 255, 0.3);
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+        padding: var(--content-padding);
+        gap: 14px;
+    }
+
     .book-grid {
         grid-template-columns: 1fr;
-        padding: 0 16px;
+        padding: var(--content-padding);
+        gap: 16px;
     }
 
     button, 
     #searchButton {
         width: 100%;
+        max-width: 100%;
         margin: 6px 0;
+    }
+
+    #timer {
+        font-size: 28px;
     }
 }
