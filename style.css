@@ -1,6 +1,6 @@
 /* ==========================================
-   ALLIED DIGITAL LIBRARY - ANIME / GAMING THEME
-   Style: Cyber-Anime, Playful Vibrancy & Keyframe Animations
+   ALLIED DIGITAL LIBRARY - FULL ANIMATION THEME
+   Style: Cyber-Anime, Pop Arcade & Power-Up VFX
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;800;900&display=swap');
@@ -49,14 +49,56 @@ body {
    ANIMATIONS & KEYFRAMES
 ========================================== */
 
+@keyframes animeLogoSpin {
+    0% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 12px var(--neon-cyan));
+    }
+    25% {
+        transform: translateY(-10px) rotate(-8deg) scale(1.12);
+        filter: drop-shadow(0 0 25px var(--neon-pink));
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg) scale(1.05);
+        filter: drop-shadow(0 0 18px var(--neon-yellow));
+    }
+    75% {
+        transform: translateY(-10px) rotate(8deg) scale(1.12);
+        filter: drop-shadow(0 0 28px var(--neon-purple));
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 12px var(--neon-cyan));
+    }
+}
+
+@keyframes energyAura {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.25);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+@keyframes textGlowShift {
+    0%, 100% {
+        filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.7));
+    }
+    50% {
+        filter: drop-shadow(0 0 22px rgba(255, 42, 133, 0.9));
+    }
+}
+
 @keyframes floatBob {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-8px) rotate(3deg); }
-}
-
-@keyframes pulseGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6)); }
-    50% { filter: drop-shadow(0 0 22px rgba(255, 42, 133, 0.8)); }
 }
 
 @keyframes shimmerEffect {
@@ -70,30 +112,68 @@ body {
 }
 
 /* ==========================================
-   HEADER
+   HEADER & HERO BRANDING
 ========================================== */
 
 header {
     background: linear-gradient(135deg, #161b33 0%, #2a1147 50%, #0d1326 100%);
     text-align: center;
-    padding: 42px 20px 30px;
+    padding: 44px 20px 32px;
     border-bottom: 3px solid var(--neon-pink);
     box-shadow: 0 10px 30px rgba(255, 42, 133, 0.25);
     position: relative;
+    overflow: hidden;
 }
 
 .logo-box {
     max-width: 1100px;
     margin: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.logo-box::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    background: conic-gradient(
+        from 0deg,
+        var(--neon-cyan),
+        var(--neon-pink),
+        var(--neon-yellow),
+        var(--neon-purple),
+        var(--neon-cyan)
+    );
+    border-radius: 50%;
+    filter: blur(16px);
+    z-index: 0;
+    animation: energyAura 4s linear infinite;
+    pointer-events: none;
 }
 
 .logo-circle {
     display: inline-block;
-    font-size: 44px;
-    animation: floatBob 3s ease-in-out infinite, pulseGlow 4s infinite;
+    font-size: 50px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    margin-bottom: 6px;
+    animation: animeLogoSpin 4s var(--anim-ease-bounce) infinite;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-circle:hover {
+    animation-play-state: paused;
+    transform: scale(1.35) rotate(15deg) !important;
+    filter: drop-shadow(0 0 35px var(--neon-yellow)) !important;
 }
 
 header h1 {
+    position: relative;
+    z-index: 1;
     font-family: 'Outfit', sans-serif;
     font-size: 38px;
     font-weight: 900;
@@ -102,14 +182,17 @@ header h1 {
     background: linear-gradient(90deg, #00f0ff, #ff2a85, #ffe600);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    animation: textGlowShift 3s ease-in-out infinite;
 }
 
 .tagline {
+    position: relative;
+    z-index: 1;
     color: #e0e7ff;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    margin-top: 4px;
 }
 
 /* ==========================================
@@ -122,7 +205,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     background: rgba(22, 27, 51, 0.95);
     padding: 10px 18px;
     border-radius: 50px;
@@ -221,7 +304,7 @@ nav a:hover {
     background: var(--surface-light);
     border: 2px solid var(--border-glow);
     border-radius: 16px;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     font-family: inherit;
     outline: none;
@@ -242,7 +325,7 @@ button {
     border: 2px solid #ffffff;
     cursor: pointer;
     background: linear-gradient(135deg, #ff2a85, #ff7300);
-    color: white;
+    color: #ffffff;
     padding: 12px 26px;
     border-radius: 14px;
     font-size: 15px;
@@ -464,7 +547,7 @@ button:disabled {
 }
 
 /* ==========================================
-   READING TIMER (FLOATING HUD DISPLAY)
+   READING TIMER (HUD DISPLAY)
 ========================================== */
 
 .reading-time {
@@ -519,7 +602,7 @@ button:disabled {
     text-align: left;
     margin: 12px 0;
     background: var(--surface-light);
-    color: white;
+    color: #ffffff;
     border: 2px solid var(--border-glow);
     border-radius: 14px;
     box-shadow: 0 4px 0 var(--border-glow);
@@ -590,13 +673,14 @@ a:hover {
 }
 
 /* ==========================================
-   MOBILE RESPONSIVENESS
+   RESPONSIVE DESIGN (TABLETS & MOBILE)
 ========================================== */
 
 @media (max-width: 860px) {
     .categories {
         grid-template-columns: repeat(2, 1fr);
     }
+    
     .book-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -606,24 +690,33 @@ a:hover {
     header h1 {
         font-size: 26px;
     }
+
     nav {
         border-radius: 18px;
         gap: 6px;
     }
+
     nav a {
         font-size: 12px;
         padding: 6px 12px;
     }
-    .hero, .search-section, .practice-card {
+
+    .hero, 
+    .search-section, 
+    .practice-card {
         margin: 16px;
         padding: 20px;
         box-shadow: 4px 4px 0px rgba(0, 240, 255, 0.3);
     }
-    .categories, .book-grid {
+
+    .categories, 
+    .book-grid {
         grid-template-columns: 1fr;
         padding: 0 16px;
     }
-    button, #searchButton {
+
+    button, 
+    #searchButton {
         width: 100%;
         margin: 6px 0;
     }
