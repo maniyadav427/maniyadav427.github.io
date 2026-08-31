@@ -1,293 +1,813 @@
-/* ===================================================
-   1. RESET & BASE STYLES
-   =================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+ /* ==========================================
+   ALLIED DIGITAL LIBRARY - RESPONSIVE DESKTOP & MOBILE
+   Style: Cyber-Anime, Pop Arcade & Power-Up VFX
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;800;900&display=swap');
+
+:root {
+    --bg-main: #0c0f1d;
+    --surface: #161b33;
+    --surface-light: #202747;
+    --border-glow: #313d6a;
+
+    --neon-pink: #ff2a85;
+    --neon-cyan: #00f0ff;
+    --neon-yellow: #ffe600;
+    --neon-purple: #9d4edd;
+
+    --text-primary: #ffffff;
+    --text-muted: #a3b1cc;
+
+    --anim-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Layout Constants */
+    --container-max-width: 1200px;
+    --content-padding: 0 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
-  line-height: 1.6;
-  color: #333333;
-  background-color: #f8f9fa;
+    font-family: 'Fredoka', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 0),
+        radial-gradient(rgba(255, 42, 133, 0.08) 1px, transparent 0);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   ANIMATIONS & KEYFRAMES
+========================================== */
+
+@keyframes animeLogoSpin {
+    0% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 12px var(--neon-cyan));
+    }
+    25% {
+        transform: translateY(-10px) rotate(-8deg) scale(1.12);
+        filter: drop-shadow(0 0 25px var(--neon-pink));
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg) scale(1.05);
+        filter: drop-shadow(0 0 18px var(--neon-yellow));
+    }
+    75% {
+        transform: translateY(-10px) rotate(8deg) scale(1.12);
+        filter: drop-shadow(0 0 28px var(--neon-purple));
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 12px var(--neon-cyan));
+    }
+}
+
+@keyframes energyAura {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.25);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+@keyframes textGlowShift {
+    0%, 100% {
+        filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.7));
+    }
+    50% {
+        filter: drop-shadow(0 0 22px rgba(255, 42, 133, 0.9));
+    }
+}
+
+@keyframes floatBob {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+@keyframes shimmerEffect {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(1000%); }
+}
+
+/* ==========================================
+   HEADER & LOGO
+========================================== */
+
+header {
+    background: linear-gradient(135deg, #161b33 0%, #2a1147 50%, #0d1326 100%);
+    text-align: center;
+    padding: 48px 24px 36px;
+    border-bottom: 3px solid var(--neon-pink);
+    box-shadow: 0 10px 30px rgba(255, 42, 133, 0.25);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.logo-box {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+}
+
+.logo-box::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    background: conic-gradient(
+        from 0deg,
+        var(--neon-cyan),
+        var(--neon-pink),
+        var(--neon-yellow),
+        var(--neon-purple),
+        var(--neon-cyan)
+    );
+    border-radius: 50%;
+    filter: blur(16px);
+    z-index: 0;
+    animation: energyAura 4s linear infinite;
+    pointer-events: none;
+}
+
+.logo-circle {
+    display: inline-block;
+    font-size: 54px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    margin-bottom: 6px;
+    animation: animeLogoSpin 4s var(--anim-ease-bounce) infinite;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-circle:hover {
+    animation-play-state: paused;
+    transform: scale(1.35) rotate(15deg) !important;
+    filter: drop-shadow(0 0 35px var(--neon-yellow)) !important;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #00f0ff, #ff2a85, #ffe600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlowShift 3s ease-in-out infinite;
+}
+
+.tagline {
+    position: relative;
+    z-index: 1;
+    color: #e0e7ff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 6px;
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+nav {
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: rgba(22, 27, 51, 0.95);
+    padding: 10px 24px;
+    border-radius: 50px;
+    max-width: fit-content;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 30px;
+    transition: all 0.25s var(--anim-ease-bounce);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: var(--neon-cyan);
+    color: #0c0f1d;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+/* ==========================================
+   HERO / MAIN SECTIONS (DESKTOP OPTIMIZED)
+========================================== */
+
+.hero {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 40px 48px;
+    background: var(--surface);
+    border-radius: 24px;
+    border: 2px solid var(--border-glow);
+    box-shadow: 8px 8px 0px rgba(0, 240, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+    animation: scanline 8s linear infinite;
+}
+
+.hero h1,
+.hero h2 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--neon-cyan);
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.hero h3 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: var(--neon-pink);
+    font-size: 22px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 950px;
+}
+
+/* ==========================================
+   SEARCH AREA
+========================================== */
+
+.search-section {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 40px 24px;
+    background: var(--surface);
+    border-radius: 24px;
+    border: 2px solid var(--border-glow);
+    box-shadow: 8px 8px 0px rgba(255, 42, 133, 0.3);
+    text-align: center;
+}
+
+#bookSearch {
+    width: 100%;
+    max-width: 650px;
+    padding: 16px 24px;
+    background: var(--surface-light);
+    border: 2px solid var(--border-glow);
+    border-radius: 16px;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#bookSearch:focus {
+    border-color: var(--neon-yellow);
+    box-shadow: 0 0 20px rgba(255, 230, 0, 0.4);
+    transform: scale(1.01);
+}
+
+/* ==========================================
+   BUTTONS (ANIME/ARCADE POP STYLE)
+========================================== */
+
+button {
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff2a85, #ff7300);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 6px;
+    box-shadow: 0 5px 0 #940041, 0 10px 20px rgba(255, 42, 133, 0.4);
+    transition: all 0.15s var(--anim-ease-bounce);
+    position: relative;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 0 #940041, 0 14px 24px rgba(255, 42, 133, 0.6);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #940041, 0 4px 10px rgba(255, 42, 133, 0.4);
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    border-color: #555;
+}
+
+#searchButton {
+    width: 100%;
+    max-width: 650px;
+    margin: 16px auto 0;
+    background: linear-gradient(135deg, #00f0ff, #7000ff);
+    box-shadow: 0 5px 0 #005f73, 0 10px 20px rgba(0, 240, 255, 0.35);
+    display: block;
+}
+
+#searchButton:hover {
+    box-shadow: 0 8px 0 #005f73, 0 14px 25px rgba(0, 240, 255, 0.5);
+}
+
+#searchButton:active {
+    box-shadow: 0 1px 0 #005f73;
+}
+
+/* ==========================================
+   CATEGORY GRID (DESKTOP/LAPTOP AUTO-FIT)
+========================================== */
+
+.categories {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: var(--content-padding);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.category-card {
+    min-height: 160px;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 24px 18px;
+    border: 2px solid var(--border-glow);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s var(--anim-ease-bounce);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-8px) rotate(-1.5deg) scale(1.04);
+    border-color: var(--neon-yellow);
+    background: var(--surface-light);
+    box-shadow: 0 12px 28px rgba(255, 230, 0, 0.25), 0 0 0 2px var(--neon-yellow);
+}
+
+.category-card .icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+    transition: transform 0.3s var(--anim-ease-bounce);
+}
+
+.category-card:hover .icon {
+    transform: scale(1.2) rotate(8deg);
+}
+
+.category-card h3 {
+    color: var(--neon-cyan);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.category-card p {
+    color: var(--text-muted);
+    font-size: 13.5px;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   BOOK CARDS (DESKTOP GRID)
+========================================== */
+
+.book-grid {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: var(--content-padding);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.book-card {
+    background: var(--surface);
+    padding: 28px;
+    border-radius: 20px;
+    border: 2px solid var(--border-glow);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--neon-pink);
+    box-shadow: 0 12px 24px rgba(255, 42, 133, 0.25), 0 0 15px rgba(255, 42, 133, 0.3);
+}
+
+.book-card h3 {
+    color: var(--neon-pink);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+}
+
+/* ==========================================
+   MINI BOOK CARDS & EMPTY CARDS
+========================================== */
+
+.book-mini-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border: 2px solid var(--border-glow);
+    transition: transform 0.2s ease;
+}
+
+.book-mini-card:hover {
+    transform: translateX(8px);
+    border-color: var(--neon-cyan);
+}
+
+.book-mini-card h3 {
+    color: var(--neon-cyan);
+    font-size: 17px;
+}
+
+.book-icon {
+    font-size: 30px;
+}
+
+.empty-card {
+    background: var(--surface-light);
+    border: 2px dashed var(--neon-pink);
+    border-radius: 20px;
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-card span {
+    font-size: 44px;
+    display: block;
+    margin-bottom: 10px;
+    animation: floatBob 3s ease-in-out infinite;
+}
+
+.empty-card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--neon-yellow);
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+}
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: var(--surface-light);
+    border-radius: 20px;
+    border: 1px solid var(--border-glow);
+    overflow: hidden;
+    margin: 16px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-yellow));
+    background-size: 200% 100%;
+    border-radius: 20px;
+    animation: shimmerEffect 2.5s linear infinite;
+}
+
+/* ==========================================
+   READING TIMER (HUD DISPLAY)
+========================================== */
+
+.reading-time {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 24px auto;
+    background: rgba(22, 27, 51, 0.9);
+    border-radius: 20px;
+    padding: 20px 32px;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.3);
+    backdrop-filter: blur(12px);
+}
+
+#timer {
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 15px rgba(255, 230, 0, 0.6);
+}
+
+/* ==========================================
+   PRACTICE CENTER
+========================================== */
+
+.practice-card {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 36px auto;
+    padding: 36px 44px;
+    background: var(--surface);
+    border-radius: 24px;
+    border: 2px solid var(--border-glow);
+    box-shadow: 8px 8px 0px rgba(157, 78, 221, 0.3);
+}
+
+.question {
+    background: var(--surface-light);
+    padding: 24px;
+    border-radius: 16px;
+    border-left: 6px solid var(--neon-yellow);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 14px 0;
+    padding: 14px 20px;
+    background: var(--surface-light);
+    color: #ffffff;
+    border: 2px solid var(--border-glow);
+    border-radius: 14px;
+    box-shadow: 0 4px 0 var(--border-glow);
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+    background: #273059;
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 4px 0 var(--neon-cyan);
+    transform: translateX(6px);
+}
+
+/* ==========================================
+   FOOTER, LISTS, CODE, & LINKS
+========================================== */
+
+footer {
+    background: #080a14;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 48px 24px;
+    margin-top: auto;
+    border-top: 2px solid var(--neon-purple);
+    width: 100%;
+}
+
+footer a {
+    color: var(--neon-pink);
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: var(--neon-yellow);
+    text-shadow: 0 0 8px var(--neon-yellow);
+}
+
+ul {
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+pre {
+    background: #080a14;
+    color: var(--neon-cyan);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border-glow);
+    overflow-x: auto;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14.5px;
 }
 
 a {
-  color: #0056b3;
-  text-decoration: none;
-  transition: color 0.2s ease;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 a:hover {
-  color: #003d80;
-  text-decoration: underline;
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px rgba(255, 42, 133, 0.6);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ==========================================
+   RESPONSIVE BREAKPOINTS
+========================================== */
+
+/* Laptop & Medium Screens (992px to 1200px) */
+@media (max-width: 1200px) {
+    :root {
+        --container-max-width: 960px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 }
 
-/* ===================================================
-   2. HEADER & NAVIGATION BAR
-   =================================================== */
-.site-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* Tablets & Small Laptops (768px to 991px) */
+@media (max-width: 991px) {
+    :root {
+        --container-max-width: 720px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    .hero, 
+    .search-section, 
+    .practice-card {
+        padding: 30px 24px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }
 
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px 20px;
-}
+/* Mobile Screens (Under 768px) */
+@media (max-width: 767px) {
+    :root {
+        --content-padding: 0 16px;
+    }
 
-.site-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a202c;
-  letter-spacing: -0.5px;
-}
+    header {
+        padding: 36px 16px 24px;
+    }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+    header h1 {
+        font-size: 26px;
+    }
 
-.search-bar input[type="search"] {
-  padding: 6px 12px;
-  border: 1px solid #cbd5e0;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  outline: none;
-}
+    .logo-circle {
+        font-size: 44px;
+    }
 
-.search-bar input[type="search"]:focus {
-  border-color: #3182ce;
-}
+    nav {
+        border-radius: 20px;
+        gap: 6px;
+        padding: 8px 12px;
+    }
 
-.search-bar button {
-  background-color: #3182ce;
-  color: #ffffff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
+    nav a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
 
-.search-bar button:hover {
-  background-color: #2b6cb0;
-}
+    .hero, 
+    .search-section, 
+    .practice-card,
+    .reading-time {
+        margin: 20px auto;
+        padding: 22px 18px;
+        border-radius: 18px;
+        box-shadow: 5px 5px 0px rgba(0, 240, 255, 0.3);
+    }
 
-/* Primary Navigation Menu */
-.primary-nav {
-  background-color: #2d3748;
-}
+    .categories {
+        grid-template-columns: 1fr;
+        padding: var(--content-padding);
+        gap: 14px;
+    }
 
-.nav-list {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  list-style: none;
-  padding: 0 20px;
-  overflow-x: auto;
-}
+    .book-grid {
+        grid-template-columns: 1fr;
+        padding: var(--content-padding);
+        gap: 16px;
+    }
 
-.nav-list li a {
-  display: block;
-  padding: 10px 16px;
-  color: #edf2f7;
-  font-size: 0.95rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
+    button, 
+    #searchButton {
+        width: 100%;
+        max-width: 100%;
+        margin: 6px 0;
+    }
 
-.nav-list li a:hover {
-  background-color: #4a5568;
-  text-decoration: none;
-}
-
-/* ===================================================
-   3. MAIN LAYOUT (SIDEBAR + ARTICLE CONTENT)
-   =================================================== */
-.main-wrapper {
-  max-width: 1200px;
-  margin: 24px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
-}
-
-/* Sidebar (List of Experiments) */
-.sidebar {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 18px;
-  height: fit-content;
-}
-
-.sidebar h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #3182ce;
-}
-
-.sidebar-menu {
-  list-style: none;
-}
-
-.sidebar-menu li {
-  margin-bottom: 8px;
-}
-
-.sidebar-menu li a {
-  font-size: 0.9rem;
-  color: #4a5568;
-  display: block;
-  padding: 6px 8px;
-  border-radius: 4px;
-}
-
-.sidebar-menu li a:hover,
-.sidebar-menu li.active a {
-  background-color: #ebf8ff;
-  color: #2b6cb0;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* Main Content Area */
-.content-area {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 32px;
-}
-
-.content-area h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
-
-.content-area h2 {
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-top: 28px;
-  margin-bottom: 12px;
-  border-left: 4px solid #3182ce;
-  padding-left: 10px;
-}
-
-.content-area h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4a5568;
-  margin-top: 20px;
-  margin-bottom: 8px;
-}
-
-.content-area p {
-  margin-bottom: 16px;
-  color: #4a5568;
-  text-align: justify;
-}
-
-.content-area ul, 
-.content-area ol {
-  margin: 12px 0 16px 24px;
-  color: #4a5568;
-}
-
-.content-area li {
-  margin-bottom: 6px;
-}
-
-/* ===================================================
-   4. DIAGRAM & MEDIA CONTAINERS
-   =================================================== */
-.diagram-container {
-  background-color: #f7fafc;
-  border: 1px solid #edf2f7;
-  border-radius: 6px;
-  padding: 16px;
-  margin: 24px 0;
-  text-align: center;
-}
-
-.diagram-container img {
-  margin: 0 auto 10px auto;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
-}
-
-.diagram-caption {
-  font-size: 0.85rem;
-  color: #718096;
-  font-weight: 500;
-}
-
-/* ===================================================
-   5. FOOTER
-   =================================================== */
-.site-footer {
-  background-color: #1a202c;
-  color: #a0aec0;
-  padding: 30px 20px;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  list-style: none;
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #cbd5e0;
-}
-
-.footer-links a:hover {
-  color: #ffffff;
-}
-
-/* ===================================================
-   6. RESPONSIVE MEDIA QUERIES
-   =================================================== */
-@media (max-width: 850px) {
-  .main-wrapper {
-    grid-template-columns: 1fr;
-  }
-  
-  .header-top {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .content-area {
-    padding: 20px;
-  }
+    #timer {
+        font-size: 28px;
+    }
 }
