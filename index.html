@@ -1,287 +1,1875 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://quge5.com/88/tag.min.js" data-zone="268178" async data-cfasync="false"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2870967645080381" crossorigin="anonymous"></script>
 
-    <link rel="canonical" href="https://maniyadav427.github.io/">
-    <title>ALLIED E-Book Management System</title>
-    <meta name="description" content="ALLIED E-Book Management System - An educational platform for learning C, Java, Python and Data Structures & Algorithms.">
-    <meta name="robots" content="index, follow">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- SEO -->
+    <title>ALLIED - Digital Library & Learning Platform</title>
+
+    <meta name="description"
+          content="ALLIED is a digital library and learning platform with e-books, programming resources, practice questions, reading progress and personalized learning.">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <link rel="canonical"
+          href="https://maniyadav427.github.io/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;700;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2870967645080381"
+        crossorigin="anonymous">
+    </script>
+
+
+    <!-- ==========================================
+         LOADING SCREEN STYLE
+    ========================================== -->
 
     <style>
-        :root {
-            --bg-main: #0c0f1d;
-            --surface: #161b33;
-            --surface-light: #202747;
-            --border-glow: #313d6a;
 
-            --neon-pink: #ff2a85;
-            --neon-cyan: #00f0ff;
-            --neon-yellow: #ffe600;
-            --neon-purple: #9d4edd;
+        #alliedLoader {
 
-            --text-primary: #ffffff;
-            --text-muted: #a3b1cc;
-        }
+            position: fixed;
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+            inset: 0;
 
-        body {
-            min-height: 100vh;
-            width: 100vw;
+            width: 100%;
+
+            height: 100%;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             padding: 16px;
-            font-family: 'Fredoka', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            background-image: 
-                radial-gradient(rgba(0, 240, 255, 0.15) 1.5px, transparent 0),
-                radial-gradient(rgba(255, 42, 133, 0.1) 1.5px, transparent 0);
+
+            background-color: #0c0f1d;
+
+            background-image:
+                radial-gradient(
+                    rgba(0, 240, 255, 0.15) 1.5px,
+                    transparent 0
+                ),
+                radial-gradient(
+                    rgba(255, 42, 133, 0.10) 1.5px,
+                    transparent 0
+                );
+
             background-size: 32px 32px;
+
             background-position: 0 0, 16px 16px;
-            overflow: hidden;
-            position: relative;
+
+            z-index: 99999;
+
+            transition:
+                opacity 0.5s ease,
+                visibility 0.5s ease;
+
         }
 
-        body::before {
-            content: '';
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(255, 42, 133, 0.25) 0%, rgba(0, 240, 255, 0.15) 60%, transparent 80%);
-            border-radius: 50%;
-            filter: blur(50px);
-            z-index: 0;
-            animation: floatGlow 6s ease-in-out infinite alternate;
+
+        #alliedLoader.hidden {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
         }
 
-        /* Centered Main Card */
-        .container {
+
+        .loader-container {
+
             width: 100%;
+
             max-width: 400px;
+
             text-align: center;
-            background: rgba(22, 27, 51, 0.95);
+
+            background: rgba(22, 27, 51, 0.96);
+
             backdrop-filter: blur(16px);
+
             padding: 38px 24px 30px;
+
             border-radius: 28px;
-            border: 2px solid var(--border-glow);
-            box-shadow: 0 10px 0 var(--border-glow), 0 20px 40px rgba(0, 0, 0, 0.6);
+
+            border: 2px solid #313d6a;
+
+            box-shadow:
+                0 10px 0 #313d6a,
+                0 20px 40px rgba(0, 0, 0, 0.6);
+
             position: relative;
-            z-index: 1;
+
             overflow: hidden;
-            animation: cardEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            animation:
+                loaderEntrance
+                0.7s
+                cubic-bezier(
+                    0.34,
+                    1.56,
+                    0.64,
+                    1
+                );
+
         }
 
-        .container::after {
+
+        .loader-container::after {
+
             content: '';
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             right: 0;
+
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
-            animation: scanline 3s linear infinite;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #00f0ff,
+                    #ff2a85,
+                    transparent
+                );
+
+            animation:
+                scanline
+                2.5s
+                linear
+                infinite;
+
         }
 
-        /* Logo Area */
-        .logo-wrapper {
+
+        .loader-logo-wrapper {
+
             position: relative;
+
             width: 86px;
+
             height: 86px;
+
             margin: 0 auto 18px;
+
         }
 
-        .logo-aura {
+
+        .loader-aura {
+
             position: absolute;
+
             inset: -6px;
-            background: conic-gradient(
-                from 0deg,
-                var(--neon-cyan),
-                var(--neon-pink),
-                var(--neon-yellow),
-                var(--neon-purple),
-                var(--neon-cyan)
-            );
+
+            background:
+                conic-gradient(
+                    from 0deg,
+                    #00f0ff,
+                    #ff2a85,
+                    #ffe600,
+                    #9d4edd,
+                    #00f0ff
+                );
+
             border-radius: 50%;
+
             filter: blur(12px);
-            animation: energySpin 3s linear infinite;
+
+            animation:
+                energySpin
+                3s
+                linear
+                infinite;
+
         }
 
-        .logo {
+
+        .loader-logo {
+
             position: relative;
+
             width: 100%;
+
             height: 100%;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             border-radius: 50%;
-            background: var(--surface-light);
-            border: 2px solid var(--neon-cyan);
+
+            background: #202747;
+
+            border: 2px solid #00f0ff;
+
             font-size: 40px;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-            animation: logoBob 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+
+            box-shadow:
+                0 0 15px
+                rgba(0, 240, 255, 0.4);
+
+            animation:
+                logoBob
+                2.5s
+                ease-in-out
+                infinite;
+
         }
 
-        /* Typography */
-        h1 {
+
+        .loader-container h1 {
+
             font-family: 'Outfit', sans-serif;
+
             font-size: 26px;
+
             font-weight: 900;
+
             letter-spacing: 0.5px;
+
             text-transform: uppercase;
-            white-space: nowrap;
+
             margin-bottom: 6px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-yellow));
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00f0ff,
+                    #ff2a85,
+                    #ffe600
+                );
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
-            animation: textPulse 3s ease-in-out infinite;
+
+            animation:
+                textPulse
+                3s
+                ease-in-out
+                infinite;
+
         }
 
-        .tagline {
+
+        .loader-tagline {
+
             font-size: 13px;
+
             font-weight: 600;
-            color: var(--neon-cyan);
+
+            color: #00f0ff;
+
             letter-spacing: 1.5px;
+
             text-transform: uppercase;
-            white-space: nowrap;
+
             margin-bottom: 22px;
+
         }
 
-        .loading {
+
+        .loader-text {
+
             font-size: 14px;
+
             font-weight: 600;
+
             margin-bottom: 18px;
-            color: var(--text-muted);
+
+            color: #a3b1cc;
+
             letter-spacing: 0.5px;
-            animation: textFlicker 1.8s ease-in-out infinite;
+
+            animation:
+                textFlicker
+                1.8s
+                ease-in-out
+                infinite;
+
         }
 
-        /* Loader */
-        .loader-box {
+
+        .loader-spinner-box {
+
             position: relative;
+
             width: 50px;
+
             height: 50px;
+
             margin: 0 auto;
+
         }
 
-        .loader {
-            width: 100%;
-            height: 100%;
+
+        .loader-spinner {
+
+            width: 50px;
+
+            height: 50px;
+
             border-radius: 50%;
-            border: 4px solid rgba(0, 240, 255, 0.15);
-            border-top: 4px solid var(--neon-cyan);
-            border-right: 4px solid var(--neon-pink);
-            box-shadow: 0 0 16px rgba(0, 240, 255, 0.5);
-            animation: spin 0.8s linear infinite;
+
+            border: 4px solid
+                rgba(0, 240, 255, 0.15);
+
+            border-top: 4px solid #00f0ff;
+
+            border-right: 4px solid #ff2a85;
+
+            box-shadow:
+                0 0 16px
+                rgba(0, 240, 255, 0.5);
+
+            animation:
+                spin
+                0.8s
+                linear
+                infinite;
+
         }
 
-        .loader::after {
-            content: '';
-            position: absolute;
-            inset: 5px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            border-bottom: 3px solid var(--neon-yellow);
-            border-left: 3px solid var(--neon-purple);
-            animation: spinReverse 1.2s linear infinite;
-        }
 
-        .footer {
+        .loader-footer {
+
             margin-top: 22px;
+
             font-size: 12px;
+
             font-weight: 600;
-            color: var(--text-muted);
+
+            color: #a3b1cc;
+
             letter-spacing: 0.5px;
+
         }
 
-        /* Animations */
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
         }
 
-        @keyframes spinReverse {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
-        }
 
         @keyframes energySpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
         }
+
 
         @keyframes logoBob {
-            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-            50% { transform: translateY(-6px) scale(1.06) rotate(4deg); }
+
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    scale(1)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-6px)
+                    scale(1.06)
+                    rotate(4deg);
+            }
+
         }
 
-        @keyframes cardEntrance {
-            0% { transform: scale(0.9) translateY(20px); opacity: 0; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+
+        @keyframes loaderEntrance {
+
+            0% {
+                transform:
+                    scale(0.9)
+                    translateY(20px);
+
+                opacity: 0;
+            }
+
+            100% {
+                transform:
+                    scale(1)
+                    translateY(0);
+
+                opacity: 1;
+            }
+
         }
+
 
         @keyframes textPulse {
-            0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5)); }
-            50% { filter: drop-shadow(0 0 16px rgba(255, 42, 133, 0.7)); }
+
+            0%, 100% {
+
+                filter:
+                    drop-shadow(
+                        0 0 8px
+                        rgba(0, 240, 255, 0.5)
+                    );
+
+            }
+
+            50% {
+
+                filter:
+                    drop-shadow(
+                        0 0 16px
+                        rgba(255, 42, 133, 0.7)
+                    );
+
+            }
+
         }
+
 
         @keyframes textFlicker {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; color: var(--text-primary); }
+
+            0%, 100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
         }
+
 
         @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(1200%); }
+
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(1200%);
+            }
+
         }
 
-        @keyframes floatGlow {
-            0% { transform: translate(-20px, -15px) scale(0.9); }
-            100% { transform: translate(20px, 15px) scale(1.15); }
-        }
     </style>
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 
 <body>
 
-    <div class="container">
-        <div class="logo-wrapper">
-            <div class="logo-aura"></div>
-            <div class="logo">📚</div>
+
+<!-- ==========================================
+     ALLIED LOADING SCREEN
+========================================== -->
+
+<div id="alliedLoader">
+
+    <div class="loader-container">
+
+        <div class="loader-logo-wrapper">
+
+            <div class="loader-aura"></div>
+
+            <div class="loader-logo">
+                📚
+            </div>
+
         </div>
 
-        <h1>ALLIED E-Book</h1>
-        <p class="tagline">Read • Learn • Manage</p>
 
-        <p class="loading">Loading your Library...</p>
+        <h1>
+            ALLIED E-Book
+        </h1>
 
-        <div class="loader-box">
-            <div class="loader"></div>
+
+        <p class="loader-tagline">
+            Read • Learn • Manage
+        </p>
+
+
+        <p class="loader-text">
+            Loading your Library...
+        </p>
+
+
+        <div class="loader-spinner-box">
+
+            <div class="loader-spinner"></div>
+
         </div>
 
-        <p class="footer">ALLIED E-Book Management System</p>
+
+        <p class="loader-footer">
+            ALLIED E-Book Management System
+        </p>
+
     </div>
 
-    <script>
-        setTimeout(function() {
-            window.location.replace("home.html");
-        }, 1200);
-    </script>
+</div>
+
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="allied-header">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            📚
+        </div>
+
+        <div>
+
+            <h1>
+                ALLIED
+            </h1>
+
+            <p>
+                Digital Library
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            🏠 Home
+        </a>
+
+        <a href="books.html">
+            📚 Books
+        </a>
+
+        <a href="practice.html">
+            📝 Practice
+        </a>
+
+        <a href="dashboard.html">
+            🎓 Dashboard
+        </a>
+
+        <a href="login.html"
+           id="loginLink">
+            🔐 Login
+        </a>
+
+        <a href="register.html"
+           id="registerLink">
+            Register
+        </a>
+
+        <button
+            id="logoutButton"
+            style="display:none;"
+            type="button">
+
+            🚪 Logout
+
+        </button>
+
+        <a href="admin.html"
+           id="adminLink"
+           style="display:none;">
+
+            🔐 Admin
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="allied-hero">
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+            📚 LEARN • READ • PRACTICE
+        </p>
+
+        <h2>
+            Your Digital Library
+        </h2>
+
+        <p>
+            Discover books, learn new concepts,
+            practice questions and track your
+            learning progress in one place.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="bookSearch"
+                placeholder="🔍 Search books, subjects or authors...">
+
+            <button
+                type="button"
+                id="searchButton">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     USER WELCOME
+========================================== -->
+
+<section class="welcome-section">
+
+    <h2 id="welcomeMessage">
+        Welcome to ALLIED 👋
+    </h2>
+
+    <p id="userStatus">
+        Explore our digital library and
+        learning resources.
+    </p>
+
+</section>
+
+
+
+<!-- ==========================================
+     CATEGORIES
+========================================== -->
+
+<section class="library-section">
+
+    <div class="section-heading">
+
+        <h2>
+            📂 Explore Categories
+        </h2>
+
+        <p>
+            Find books and learning resources
+            by subject.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <button
+            class="category-card"
+            data-category="Computer Science">
+
+            <span>💻</span>
+
+            <strong>
+                Computer Science
+            </strong>
+
+            <small>
+                Programming & Technology
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Mathematics">
+
+            <span>📐</span>
+
+            <strong>
+                Mathematics
+            </strong>
+
+            <small>
+                Maths & Problem Solving
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Physics">
+
+            <span>🔬</span>
+
+            <strong>
+                Physics
+            </strong>
+
+            <small>
+                Science & Concepts
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Chemistry">
+
+            <span>🧪</span>
+
+            <strong>
+                Chemistry
+            </strong>
+
+            <small>
+                Chemical Sciences
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Engineering">
+
+            <span>⚡</span>
+
+            <strong>
+                Engineering
+            </strong>
+
+            <small>
+                Engineering Subjects
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="General Knowledge">
+
+            <span>🌍</span>
+
+            <strong>
+                General Knowledge
+            </strong>
+
+            <small>
+                GK & Current Learning
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Exam Preparation">
+
+            <span>📝</span>
+
+            <strong>
+                Exam Preparation
+            </strong>
+
+            <small>
+                Practice & Mock Tests
+            </small>
+
+        </button>
+
+
+        <button
+            class="category-card"
+            data-category="Literature">
+
+            <span>📖</span>
+
+            <strong>
+                Literature
+            </strong>
+
+            <small>
+                Stories & Novels
+            </small>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     CONTINUE READING
+========================================== -->
+
+<section class="library-section">
+
+    <div class="section-heading">
+
+        <h2>
+            ▶️ Continue Reading
+        </h2>
+
+        <p>
+            Continue from where you stopped.
+        </p>
+
+    </div>
+
+
+    <div id="continueReading">
+
+        <div class="empty-card">
+
+            <span>
+                📚
+            </span>
+
+            <p>
+                Your recently read books
+                will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     SAVED BOOKS
+========================================== -->
+
+<section class="library-section">
+
+    <div class="section-heading">
+
+        <h2>
+            🔖 Saved Books
+        </h2>
+
+        <p>
+            Quickly access books you saved.
+        </p>
+
+    </div>
+
+
+    <div id="savedBooks">
+
+        <div class="empty-card">
+
+            <span>
+                🔖
+            </span>
+
+            <p>
+                Your saved books will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     PRACTICE CENTER
+========================================== -->
+
+<section class="practice-banner">
+
+    <div>
+
+        <span>
+            📝
+        </span>
+
+        <h2>
+            Practice Center
+        </h2>
+
+        <p>
+            Test your knowledge with timed questions,
+            advanced practice and mock tests.
+        </p>
+
+    </div>
+
+
+    <a href="practice.html">
+        Start Practice →
+    </a>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="allied-footer">
+
+    <h2>
+        📚 ALLIED
+    </h2>
+
+    <p>
+        Read • Learn • Practice • Grow
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="books.html">
+            Books
+        </a>
+
+        <a href="practice.html">
+            Practice
+        </a>
+
+        <a href="privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+    <p>
+        © 2026 ALLIED Digital Library
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     FIREBASE + HOMEPAGE JAVASCRIPT
+========================================== -->
+
+<script type="module">
+
+import {
+    auth,
+    db,
+    onAuthStateChanged,
+    signOut,
+    collection,
+    getDocs
+} from "./firebase.js";
+
+
+// ==========================================
+// ELEMENTS
+// ==========================================
+
+const loginLink =
+    document.getElementById("loginLink");
+
+const registerLink =
+    document.getElementById("registerLink");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const adminLink =
+    document.getElementById("adminLink");
+
+const welcomeMessage =
+    document.getElementById("welcomeMessage");
+
+const userStatus =
+    document.getElementById("userStatus");
+
+const searchInput =
+    document.getElementById("bookSearch");
+
+const searchButton =
+    document.getElementById("searchButton");
+
+const continueReading =
+    document.getElementById("continueReading");
+
+const savedBooks =
+    document.getElementById("savedBooks");
+
+
+// ==========================================
+// ADMIN EMAIL
+// ==========================================
+
+const ADMIN_EMAIL =
+    "mekalamanoj8522@gmail.com";
+
+
+// ==========================================
+// CURRENT USER
+// ==========================================
+
+let currentUser = null;
+
+
+// ==========================================
+// FIREBASE AUTHENTICATION
+// ==========================================
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        currentUser = user;
+
+
+        // ==================================
+        // USER LOGGED IN
+        // ==================================
+
+        if (user) {
+
+            welcomeMessage.textContent =
+                "Welcome back, " +
+                (user.displayName || "Reader") +
+                " 👋";
+
+
+            userStatus.textContent =
+                "You are signed in as " +
+                user.email;
+
+
+            loginLink.style.display =
+                "none";
+
+
+            registerLink.style.display =
+                "none";
+
+
+            logoutButton.style.display =
+                "inline-block";
+
+
+            // ==================================
+            // ADMIN ACCESS
+            // ==================================
+
+            if (
+                user.email &&
+                user.email.toLowerCase() ===
+                ADMIN_EMAIL.toLowerCase()
+            ) {
+
+                adminLink.style.display =
+                    "inline-block";
+
+            }
+
+            else {
+
+                adminLink.style.display =
+                    "none";
+
+            }
+
+
+            // Load user data
+
+            await loadSavedBooks();
+
+            await loadRecentBooks();
+
+        }
+
+
+        // ==================================
+        // USER NOT LOGGED IN
+        // ==================================
+
+        else {
+
+            welcomeMessage.textContent =
+                "Welcome to ALLIED 👋";
+
+
+            userStatus.textContent =
+                "Explore our digital library and learning resources.";
+
+
+            loginLink.style.display =
+                "inline-block";
+
+
+            registerLink.style.display =
+                "inline-block";
+
+
+            logoutButton.style.display =
+                "none";
+
+
+            adminLink.style.display =
+                "none";
+
+
+            showLoginMessage();
+
+        }
+
+    }
+);
+
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await signOut(auth);
+
+            window.location.href =
+                "/";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+            alert(
+                "Unable to logout. Please try again."
+            );
+
+        }
+
+    }
+);
+
+
+
+// ==========================================
+// CATEGORY BUTTONS
+// ==========================================
+
+const categoryButtons =
+    document.querySelectorAll(
+        ".category-card"
+    );
+
+
+categoryButtons.forEach(
+    (button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const category =
+                    button.dataset.category;
+
+
+                window.location.href =
+                    "books.html?category=" +
+                    encodeURIComponent(
+                        category
+                    );
+
+            }
+        );
+
+    }
+);
+
+
+
+// ==========================================
+// SEARCH
+// ==========================================
+
+function performSearch() {
+
+    const search =
+        searchInput.value.trim();
+
+
+    if (search === "") {
+
+        alert(
+            "Please enter a book, subject or author."
+        );
+
+        return;
+
+    }
+
+
+    window.location.href =
+        "books.html?search=" +
+        encodeURIComponent(
+            search
+        );
+
+}
+
+
+searchButton.addEventListener(
+    "click",
+    performSearch
+);
+
+
+searchInput.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "Enter") {
+
+            performSearch();
+
+        }
+
+    }
+);
+
+
+
+// ==========================================
+// LOAD SAVED BOOKS
+// ==========================================
+
+async function loadSavedBooks() {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const savedBooksRef =
+            collection(
+                db,
+                "users",
+                currentUser.uid,
+                "savedBooks"
+            );
+
+
+        const snapshot =
+            await getDocs(
+                savedBooksRef
+            );
+
+
+        if (snapshot.empty) {
+
+            savedBooks.innerHTML = `
+
+                <div class="empty-card">
+
+                    <span>
+                        🔖
+                    </span>
+
+                    <p>
+                        You haven't saved any books yet.
+                    </p>
+
+                    <a href="books.html">
+                        Browse Books →
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        savedBooks.innerHTML = "";
+
+
+        snapshot.forEach(
+            (documentSnapshot) => {
+
+                const book =
+                    documentSnapshot.data();
+
+
+                const title =
+                    book.title ||
+                    "Untitled Book";
+
+
+                const category =
+                    book.category ||
+                    "General";
+
+
+                const bookId =
+                    book.bookId ||
+                    "";
+
+
+                let readPage =
+                    book.url ||
+                    "books.html";
+
+
+                // ==================================
+                // KNOWN BOOKS
+                // ==================================
+
+                if (
+                    bookId ===
+                    "c-programming"
+                ) {
+
+                    readPage =
+                        "c.html";
+
+                }
+
+                else if (
+                    bookId ===
+                    "java-programming"
+                ) {
+
+                    readPage =
+                        "java.html";
+
+                }
+
+                else if (
+                    bookId ===
+                    "python-programming"
+                ) {
+
+                    readPage =
+                        "python.html";
+
+                }
+
+                else if (
+                    bookId ===
+                    "data-structures-algorithms"
+                ) {
+
+                    readPage =
+                        "dsa.html";
+
+                }
+
+
+                // ==================================
+                // CREATE CARD
+                // ==================================
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "saved-book-card";
+
+
+                card.innerHTML = `
+
+                    <h3>
+                        📚 ${escapeHTML(title)}
+                    </h3>
+
+                    <p>
+                        🔖 ${escapeHTML(category)}
+                    </p>
+
+                    <button
+                        type="button"
+                        class="continueBook">
+
+                        ▶️ Continue Reading
+
+                    </button>
+
+                `;
+
+
+                const button =
+                    card.querySelector(
+                        ".continueBook"
+                    );
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        window.location.href =
+                            readPage;
+
+                    }
+                );
+
+
+                savedBooks.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Load saved books error:",
+            error
+        );
+
+
+        savedBooks.innerHTML = `
+
+            <div class="empty-card">
+
+                <span>
+                    ❌
+                </span>
+
+                <p>
+                    Unable to load saved books.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+// ==========================================
+// LOAD RECENT BOOKS
+// ==========================================
+
+async function loadRecentBooks() {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const recentBooksRef =
+            collection(
+                db,
+                "users",
+                currentUser.uid,
+                "recentBooks"
+            );
+
+
+        const snapshot =
+            await getDocs(
+                recentBooksRef
+            );
+
+
+        if (snapshot.empty) {
+
+            continueReading.innerHTML = `
+
+                <div class="empty-card">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <p>
+                        Start reading a book and
+                        it will appear here.
+                    </p>
+
+                    <a href="books.html">
+                        Explore Books →
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        continueReading.innerHTML = "";
+
+
+        snapshot.forEach(
+            (documentSnapshot) => {
+
+                const book =
+                    documentSnapshot.data();
+
+
+                const title =
+                    book.title ||
+                    "Untitled Book";
+
+
+                const chapter =
+                    book.chapter ||
+                    "Continue reading";
+
+
+                const progress =
+                    Math.min(
+                        100,
+                        Math.max(
+                            0,
+                            Number(
+                                book.progress || 0
+                            )
+                        )
+                    );
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "book-mini-card";
+
+
+                card.innerHTML = `
+
+                    <span class="book-icon">
+                        📖
+                    </span>
+
+                    <h3>
+                        ${escapeHTML(title)}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(chapter)}
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            style="width:${progress}%;">
+                        </div>
+
+                    </div>
+
+                    <p>
+                        ${progress}% completed
+                    </p>
+
+                    <button
+                        type="button"
+                        class="continue-button">
+
+                        ▶️ Continue Reading
+
+                    </button>
+
+                `;
+
+
+                const continueButton =
+                    card.querySelector(
+                        ".continue-button"
+                    );
+
+
+                continueButton.addEventListener(
+                    "click",
+                    () => {
+
+                        if (book.url) {
+
+                            window.location.href =
+                                book.url;
+
+                        }
+
+                        else {
+
+                            window.location.href =
+                                "books.html";
+
+                        }
+
+                    }
+                );
+
+
+                continueReading.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Recent books error:",
+            error
+        );
+
+
+        continueReading.innerHTML = `
+
+            <div class="empty-card">
+
+                <p>
+                    Unable to load recent books.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+// ==========================================
+// NOT LOGGED IN MESSAGE
+// ==========================================
+
+function showLoginMessage() {
+
+    continueReading.innerHTML = `
+
+        <div class="empty-card">
+
+            <span>
+                🔐
+            </span>
+
+            <p>
+                Login to see your recent books.
+            </p>
+
+            <a href="login.html">
+                Login →
+            </a>
+
+        </div>
+
+    `;
+
+
+    savedBooks.innerHTML = `
+
+        <div class="empty-card">
+
+            <span>
+                🔖
+            </span>
+
+            <p>
+                Login to see your saved books.
+            </p>
+
+            <a href="login.html">
+                Login →
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+
+// ==========================================
+// HTML SAFETY
+// ==========================================
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+
+
+<!-- ==========================================
+     LOADING SCREEN JAVASCRIPT
+========================================== -->
+
+<script>
+
+window.addEventListener(
+    "load",
+    function () {
+
+        setTimeout(
+            function () {
+
+                const loader =
+                    document.getElementById(
+                        "alliedLoader"
+                    );
+
+
+                if (loader) {
+
+                    loader.classList.add(
+                        "hidden"
+                    );
+
+                }
+
+            },
+            1200
+        );
+
+    }
+);
+
+</script>
+
 
 </body>
+
 </html>
