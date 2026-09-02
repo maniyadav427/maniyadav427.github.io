@@ -76,11 +76,12 @@
 <section class="hero">
 
     <h2>
-        📚 Explore Books
+        📚 Explore Learning Resources
     </h2>
 
     <p>
-        Find books by subject, category or title.
+        Find books and free educational resources
+        by subject or category.
     </p>
 
 
@@ -107,16 +108,17 @@
 
     <div class="book-category">
 
-
         <button
+            type="button"
             onclick="showCategory('all')">
 
-            📚 All Books
+            📚 All
 
         </button>
 
 
         <button
+            type="button"
             onclick="showCategory('computer')">
 
             💻 Computer Science
@@ -125,6 +127,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('mathematics')">
 
             📐 Mathematics
@@ -133,6 +136,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('physics')">
 
             ⚛️ Physics
@@ -141,6 +145,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('chemistry')">
 
             🧪 Chemistry
@@ -149,6 +154,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('engineering')">
 
             ⚙️ Engineering
@@ -157,6 +163,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('gk')">
 
             🌍 General Knowledge
@@ -165,6 +172,7 @@
 
 
         <button
+            type="button"
             onclick="showCategory('exam')">
 
             📝 Exam Preparation
@@ -173,12 +181,12 @@
 
 
         <button
+            type="button"
             onclick="showCategory('literature')">
 
-            📖 Literature & Novels
+            📖 Literature
 
         </button>
-
 
     </div>
 
@@ -193,7 +201,7 @@
 <section class="hero">
 
     <h2>
-        📖 Available Books
+        📖 Available Books & Resources
     </h2>
 
 
@@ -217,12 +225,13 @@
 
 
             <p>
-                Complete C Programming Course
+                Learn C programming fundamentals,
+                syntax and programming concepts.
             </p>
 
 
             <p>
-                📖 20 Chapters
+                📚 Programming Resource
             </p>
 
 
@@ -242,9 +251,20 @@
 
 
             <button
+                type="button"
                 onclick="window.location.href='c.html'">
 
-                ▶️ Read Book
+                ▶️ Read in ALLIED
+
+            </button>
+
+
+            <button
+                class="externalBook"
+                type="button"
+                data-url="https://en.cppreference.com/w/c">
+
+                🌐 External Resource
 
             </button>
 
@@ -256,7 +276,6 @@
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -278,12 +297,13 @@
 
 
             <p>
-                Learn Java from Basic to Advanced
+                Learn Java programming, classes,
+                objects and core language concepts.
             </p>
 
 
             <p>
-                📖 Complete Course
+                📚 Oracle Java Tutorials
             </p>
 
 
@@ -303,9 +323,20 @@
 
 
             <button
+                type="button"
                 onclick="window.location.href='java.html'">
 
-                ▶️ Read Book
+                ▶️ Read in ALLIED
+
+            </button>
+
+
+            <button
+                class="externalBook"
+                type="button"
+                data-url="https://docs.oracle.com/javase/tutorial/">
+
+                🌐 Free Java Tutorial
 
             </button>
 
@@ -317,7 +348,6 @@
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -339,12 +369,13 @@
 
 
             <p>
-                Python Basic to Advanced
+                Learn Python syntax, functions,
+                modules and programming basics.
             </p>
 
 
             <p>
-                📖 Complete Course
+                📚 Python Official Documentation
             </p>
 
 
@@ -364,9 +395,20 @@
 
 
             <button
+                type="button"
                 onclick="window.location.href='python.html'">
 
-                ▶️ Read Book
+                ▶️ Read in ALLIED
+
+            </button>
+
+
+            <button
+                class="externalBook"
+                type="button"
+                data-url="https://docs.python.org/3/tutorial/">
+
+                🌐 Free Python Tutorial
 
             </button>
 
@@ -379,13 +421,12 @@
 
             </button>
 
-
         </div>
 
 
 
         <!-- =================================
-             DSA
+             DATA STRUCTURES
         ================================== -->
 
         <div
@@ -400,12 +441,13 @@
 
 
             <p>
-                Learn DSA concepts and algorithms.
+                Study algorithms, data structures
+                and problem-solving techniques.
             </p>
 
 
             <p>
-                📖 Complete Course
+                📚 Computer Science Resource
             </p>
 
 
@@ -425,9 +467,20 @@
 
 
             <button
+                type="button"
                 onclick="window.location.href='dsa.html'">
 
-                ▶️ Read Book
+                ▶️ Read in ALLIED
+
+            </button>
+
+
+            <button
+                class="externalBook"
+                type="button"
+                data-url="https://en.wikipedia.org/wiki/Data_structure">
+
+                🌐 Learn DSA
 
             </button>
 
@@ -440,6 +493,131 @@
 
             </button>
 
+        </div>
+
+
+
+        <!-- =================================
+             WEB DEVELOPMENT
+        ================================== -->
+
+        <div
+            class="book-card"
+            data-category="computer"
+            data-title="Web Development HTML CSS JavaScript">
+
+
+            <h3>
+                🌐 Web Development
+            </h3>
+
+
+            <p>
+                Learn HTML, CSS, JavaScript and
+                modern web development fundamentals.
+            </p>
+
+
+            <p>
+                📚 MDN Web Development
+            </p>
+
+
+            <p class="runtime">
+
+                ⏱️ Reading time:
+
+                <span
+                    class="runtimeValue"
+                    data-book="Web Development">
+
+                    00:00:00
+
+                </span>
+
+            </p>
+
+
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://developer.mozilla.org/en-US/docs/Learn_web_development">
+
+                🌐 Read Resource
+
+            </button>
+
+
+            <button
+                class="saveBook"
+                data-book="Web Development">
+
+                🔖 Save
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================
+             PYTHON COMPUTER SCIENCE
+        ================================== -->
+
+        <div
+            class="book-card"
+            data-category="computer"
+            data-title="OpenStax Computer Science">
+
+
+            <h3>
+                🖥️ Open Computer Science
+            </h3>
+
+
+            <p>
+                Free computer science learning
+                resources and textbooks.
+            </p>
+
+
+            <p>
+                📚 OpenStax
+            </p>
+
+
+            <p class="runtime">
+
+                ⏱️ Reading time:
+
+                <span
+                    class="runtimeValue"
+                    data-book="Open Computer Science">
+
+                    00:00:00
+
+                </span>
+
+            </p>
+
+
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/">
+
+                🌐 Open Resource
+
+            </button>
+
+
+            <button
+                class="saveBook"
+                data-book="Open Computer Science">
+
+                🔖 Save
+
+            </button>
 
         </div>
 
@@ -452,16 +630,22 @@
         <div
             class="book-card"
             data-category="mathematics"
-            data-title="Engineering Mathematics">
+            data-title="Mathematics">
 
 
             <h3>
-                📐 Engineering Mathematics
+                📐 Mathematics
             </h3>
 
 
             <p>
-                Mathematics concepts and problem solving.
+                Free mathematics textbooks and
+                learning resources.
+            </p>
+
+
+            <p>
+                📚 Open Educational Resources
             </p>
 
 
@@ -471,7 +655,7 @@
 
                 <span
                     class="runtimeValue"
-                    data-book="Engineering Mathematics">
+                    data-book="Mathematics">
 
                     00:00:00
 
@@ -480,19 +664,23 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/subjects/math">
+
+                🌐 Read Mathematics
+
             </button>
 
 
             <button
                 class="saveBook"
-                data-book="Engineering Mathematics">
+                data-book="Mathematics">
 
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -505,16 +693,22 @@
         <div
             class="book-card"
             data-category="physics"
-            data-title="Engineering Physics">
+            data-title="College Physics">
 
 
             <h3>
-                ⚛️ Engineering Physics
+                ⚛️ College Physics
             </h3>
 
 
             <p>
-                Physics concepts and important topics.
+                Free physics textbook resources
+                for students.
+            </p>
+
+
+            <p>
+                📚 OpenStax Physics
             </p>
 
 
@@ -524,7 +718,7 @@
 
                 <span
                     class="runtimeValue"
-                    data-book="Engineering Physics">
+                    data-book="College Physics">
 
                     00:00:00
 
@@ -533,19 +727,23 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/subjects/science">
+
+                🌐 Read Physics
+
             </button>
 
 
             <button
                 class="saveBook"
-                data-book="Engineering Physics">
+                data-book="College Physics">
 
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -558,16 +756,22 @@
         <div
             class="book-card"
             data-category="chemistry"
-            data-title="Engineering Chemistry">
+            data-title="Chemistry">
 
 
             <h3>
-                🧪 Engineering Chemistry
+                🧪 Chemistry
             </h3>
 
 
             <p>
-                Chemical concepts and applications.
+                Free chemistry learning materials
+                and open textbooks.
+            </p>
+
+
+            <p>
+                📚 OpenStax Science
             </p>
 
 
@@ -577,7 +781,7 @@
 
                 <span
                     class="runtimeValue"
-                    data-book="Engineering Chemistry">
+                    data-book="Chemistry">
 
                     00:00:00
 
@@ -586,19 +790,23 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/subjects/science">
+
+                🌐 Read Chemistry
+
             </button>
 
 
             <button
                 class="saveBook"
-                data-book="Engineering Chemistry">
+                data-book="Chemistry">
 
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -611,16 +819,22 @@
         <div
             class="book-card"
             data-category="engineering"
-            data-title="Engineering Subjects">
+            data-title="Engineering Resources">
 
 
             <h3>
-                ⚙️ Engineering Subjects
+                ⚙️ Engineering Resources
             </h3>
 
 
             <p>
-                Engineering subjects and study materials.
+                Open educational resources for
+                engineering students.
+            </p>
+
+
+            <p>
+                📚 Open Educational Resources
             </p>
 
 
@@ -630,7 +844,7 @@
 
                 <span
                     class="runtimeValue"
-                    data-book="Engineering Subjects">
+                    data-book="Engineering Resources">
 
                     00:00:00
 
@@ -639,19 +853,23 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/">
+
+                🌐 Explore Resources
+
             </button>
 
 
             <button
                 class="saveBook"
-                data-book="Engineering Subjects">
+                data-book="Engineering Resources">
 
                 🔖 Save
 
             </button>
-
 
         </div>
 
@@ -673,7 +891,13 @@
 
 
             <p>
-                General knowledge and current learning.
+                Educational reference resources
+                for general learning.
+            </p>
+
+
+            <p>
+                📚 Educational Resource
             </p>
 
 
@@ -692,8 +916,13 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://en.wikipedia.org/wiki/Main_Page">
+
+                🌐 Open Resource
+
             </button>
 
 
@@ -704,60 +933,6 @@
                 🔖 Save
 
             </button>
-
-
-        </div>
-
-
-
-        <!-- =================================
-             EXAM PREPARATION
-        ================================== -->
-
-        <div
-            class="book-card"
-            data-category="exam"
-            data-title="JEE Main Preparation">
-
-
-            <h3>
-                📝 JEE Main Preparation
-            </h3>
-
-
-            <p>
-                Practice material and preparation resources.
-            </p>
-
-
-            <p class="runtime">
-
-                ⏱️ Reading time:
-
-                <span
-                    class="runtimeValue"
-                    data-book="JEE Main Preparation">
-
-                    00:00:00
-
-                </span>
-
-            </p>
-
-
-            <button>
-                🔒 Coming Soon
-            </button>
-
-
-            <button
-                class="saveBook"
-                data-book="JEE Main Preparation">
-
-                🔖 Save
-
-            </button>
-
 
         </div>
 
@@ -770,16 +945,22 @@
         <div
             class="book-card"
             data-category="literature"
-            data-title="Stories and Novels">
+            data-title="Public Domain Literature">
 
 
             <h3>
-                📖 Stories & Novels
+                📖 Public-Domain Literature
             </h3>
 
 
             <p>
-                Copyright-free literature and stories.
+                Read books and literature that are
+                available through public-domain collections.
+            </p>
+
+
+            <p>
+                📚 Project Gutenberg
             </p>
 
 
@@ -789,7 +970,7 @@
 
                 <span
                     class="runtimeValue"
-                    data-book="Stories and Novels">
+                    data-book="Public-Domain Literature">
 
                     00:00:00
 
@@ -798,19 +979,86 @@
             </p>
 
 
-            <button>
-                🔒 Coming Soon
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://www.gutenberg.org/">
+
+                🌐 Read Books
+
             </button>
 
 
             <button
                 class="saveBook"
-                data-book="Stories and Novels">
+                data-book="Public-Domain Literature">
 
                 🔖 Save
 
             </button>
 
+        </div>
+
+
+
+        <!-- =================================
+             EXAM PREPARATION
+        ================================== -->
+
+        <div
+            class="book-card"
+            data-category="exam"
+            data-title="Exam Preparation">
+
+
+            <h3>
+                📝 Exam Preparation
+            </h3>
+
+
+            <p>
+                Find educational resources for
+                exam preparation and study.
+            </p>
+
+
+            <p>
+                📚 Learning Resources
+            </p>
+
+
+            <p class="runtime">
+
+                ⏱️ Reading time:
+
+                <span
+                    class="runtimeValue"
+                    data-book="Exam Preparation">
+
+                    00:00:00
+
+                </span>
+
+            </p>
+
+
+            <button
+                type="button"
+                class="externalBook"
+                data-url="https://openstax.org/">
+
+                🌐 Study Resources
+
+            </button>
+
+
+            <button
+                class="saveBook"
+                data-book="Exam Preparation">
+
+                🔖 Save
+
+            </button>
 
         </div>
 
@@ -818,9 +1066,6 @@
     </div>
 
 </section>
-
-
-
 <!-- =========================================
      FOOTER
 ========================================= -->
@@ -852,6 +1097,10 @@ const books =
     document.querySelectorAll(".book-card");
 
 
+/* =========================================
+   SEARCH
+========================================= */
+
 search.addEventListener(
     "input",
     function () {
@@ -866,8 +1115,11 @@ search.addEventListener(
             function (book) {
 
                 const title =
-                    book.dataset.title
-                        .toLowerCase();
+                    (
+                        book.dataset.title || ""
+                    )
+                    .toLowerCase();
+
 
                 const text =
                     book.innerText
@@ -898,6 +1150,10 @@ search.addEventListener(
 );
 
 
+/* =========================================
+   CATEGORY FILTER
+========================================= */
+
 function showCategory(category) {
 
     books.forEach(
@@ -923,9 +1179,59 @@ function showCategory(category) {
         }
     );
 
+
+    /* Clear search */
+
+    search.value = "";
+
 }
 
-</script><!-- =========================================
+
+/* =========================================
+   EXTERNAL RESOURCE BUTTONS
+========================================= */
+
+document
+    .querySelectorAll(".externalBook")
+    .forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const url =
+                        button.dataset.url;
+
+
+                    if (!url) {
+
+                        alert(
+                            "❌ Resource link is not available."
+                        );
+
+                        return;
+
+                    }
+
+
+                    window.open(
+                        url,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+
+
+<!-- =========================================
      FIREBASE
 ========================================= -->
 
@@ -953,30 +1259,32 @@ let currentUser = null;
 
 
 /* =========================================
-   LOGIN / LOGOUT ELEMENTS
+   LOGIN / LOGOUT
 ========================================= */
 
 const loginLink =
     document.getElementById("loginLink");
+
 
 const logoutLink =
     document.getElementById("logoutLink");
 
 
 /* =========================================
-   CHECK AUTH STATE
+   AUTH STATE
 ========================================= */
 
 onAuthStateChanged(
+
     auth,
+
     async (user) => {
 
-        currentUser = user;
+        currentUser =
+            user;
 
 
         if (user) {
-
-            /* Logged in */
 
             if (loginLink) {
 
@@ -994,20 +1302,13 @@ onAuthStateChanged(
             }
 
 
-            /* Load saved books */
-
             await loadSavedBooks();
-
-
-            /* Load reading time */
 
             await loadReadingTimes();
 
         }
 
         else {
-
-            /* Logged out */
 
             if (loginLink) {
 
@@ -1027,6 +1328,7 @@ onAuthStateChanged(
         }
 
     }
+
 );
 
 
@@ -1036,7 +1338,9 @@ onAuthStateChanged(
 ========================================= */
 
 logoutLink.addEventListener(
+
     "click",
+
     async function (event) {
 
         event.preventDefault();
@@ -1072,12 +1376,14 @@ logoutLink.addEventListener(
 
 
             alert(
-                "❌ Unable to logout."
+                "❌ Unable to logout.\n\n" +
+                error.message
             );
 
         }
 
     }
+
 );
 
 
@@ -1088,154 +1394,166 @@ logoutLink.addEventListener(
 
 document
     .querySelectorAll(".saveBook")
-    .forEach(function (button) {
+    .forEach(
+        function (button) {
+
+            button.addEventListener(
+
+                "click",
+
+                async function () {
 
 
-        button.addEventListener(
-            "click",
-            async function () {
+                    /* -------------------------
+                       LOGIN CHECK
+                    ------------------------- */
 
+                    if (!currentUser) {
 
-                /* -------------------------
-                   CHECK LOGIN
-                ------------------------- */
-
-                if (!currentUser) {
-
-                    alert(
-                        "🔐 Please login before saving books."
-                    );
-
-
-                    window.location.href =
-                        "login.html";
-
-
-                    return;
-
-                }
-
-
-
-                /* -------------------------
-                   BOOK NAME
-                ------------------------- */
-
-                const bookName =
-                    button.dataset.book;
-
-
-
-                /* -------------------------
-                   CREATE BOOK ID
-                ------------------------- */
-
-                const bookId =
-                    bookName
-                        .toLowerCase()
-                        .replace(
-                            /[^a-z0-9]+/g,
-                            "-"
-                        )
-                        .replace(
-                            /^-|-$/g,
-                            ""
+                        alert(
+                            "🔐 Please login before saving books."
                         );
 
 
+                        window.location.href =
+                            "login.html";
 
-                try {
+
+                        return;
+
+                    }
 
 
                     /* -------------------------
-                       FIRESTORE LOCATION
-
-                       users
-                         └── UID
-                             └── savedBooks
+                       BOOK NAME
                     ------------------------- */
 
-                    const savedBook =
-                        doc(
-                            db,
-                            "users",
-                            currentUser.uid,
-                            "savedBooks",
-                            bookId
+                    const bookName =
+                        button.dataset.book;
+
+
+                    /* -------------------------
+                       BOOK ID
+                    ------------------------- */
+
+                    const bookId =
+                        bookName
+                            .toLowerCase()
+                            .replace(
+                                /[^a-z0-9]+/g,
+                                "-"
+                            )
+                            .replace(
+                                /^-|-$/g,
+                                ""
+                            );
+
+
+                    try {
+
+
+                        /* -------------------------
+                           FIRESTORE PATH
+
+                           users
+                              UID
+                                savedBooks
+                                   bookId
+                        ------------------------- */
+
+                        const savedBook =
+                            doc(
+
+                                db,
+
+                                "users",
+
+                                currentUser.uid,
+
+                                "savedBooks",
+
+                                bookId
+
+                            );
+
+
+                        /* -------------------------
+                           SAVE
+                        ------------------------- */
+
+                        await setDoc(
+
+                            savedBook,
+
+                            {
+
+                                bookId:
+                                    bookId,
+
+                                title:
+                                    bookName,
+
+                                savedAt:
+                                    serverTimestamp()
+
+                            },
+
+                            {
+
+                                merge:
+                                    true
+
+                            }
+
                         );
 
 
+                        /* -------------------------
+                           BUTTON
+                        ------------------------- */
 
-                    /* -------------------------
-                       SAVE BOOK
-                    ------------------------- */
-
-                    await setDoc(
-                        savedBook,
-                        {
-
-                            bookId:
-                                bookId,
-
-                            title:
-                                bookName,
-
-                            savedAt:
-                                serverTimestamp()
-
-                        },
-
-                        {
-                            merge: true
-                        }
-
-                    );
+                        button.textContent =
+                            "✅ Saved";
 
 
-
-                    /* -------------------------
-                       UPDATE BUTTON
-                    ------------------------- */
-
-                    button.textContent =
-                        "✅ Saved";
+                        button.disabled =
+                            true;
 
 
-                    button.disabled =
-                        true;
+                        alert(
+
+                            "📚 " +
+                            bookName +
+                            " saved successfully!"
+
+                        );
+
+                    }
+
+                    catch (error) {
+
+                        console.error(
+                            "Save book error:",
+                            error
+                        );
 
 
+                        alert(
 
-                    alert(
-                        "📚 " +
-                        bookName +
-                        " saved successfully!"
-                    );
+                            "❌ Unable to save the book.\n\n" +
+                            error.message
 
+                        );
+
+                    }
 
                 }
 
-                catch (error) {
+            );
 
+        }
 
-                    console.error(
-                        "Save book error:",
-                        error
-                    );
-
-
-                    alert(
-                        "❌ Unable to save the book.\n\n" +
-                        error.message
-                    );
-
-                }
-
-            }
-
-        );
-
-    });
+    );
 
 
 
@@ -1258,10 +1576,15 @@ async function loadSavedBooks() {
 
         const savedBooksRef =
             collection(
+
                 db,
+
                 "users",
+
                 currentUser.uid,
+
                 "savedBooks"
+
             );
 
 
@@ -1271,56 +1594,50 @@ async function loadSavedBooks() {
             );
 
 
-
-        /* -------------------------
-           CHECK EVERY SAVE BUTTON
-        ------------------------- */
-
         document
             .querySelectorAll(".saveBook")
-            .forEach(function (button) {
+            .forEach(
+                function (button) {
 
 
-                const bookName =
-                    button.dataset.book;
+                    const bookName =
+                        button.dataset.book;
 
 
-                const found =
-                    snapshot.docs.some(
-                        function (item) {
+                    const found =
+                        snapshot.docs.some(
+                            function (item) {
+
+                                const data =
+                                    item.data();
 
 
-                            const data =
-                                item.data();
+                                return (
+                                    data.title ===
+                                    bookName
+                                );
+
+                            }
+                        );
 
 
-                            return (
-                                data.title ===
-                                bookName
-                            );
+                    if (found) {
 
-                        }
-                    );
+                        button.textContent =
+                            "✅ Saved";
 
 
-                if (found) {
+                        button.disabled =
+                            true;
 
-                    button.textContent =
-                        "✅ Saved";
-
-
-                    button.disabled =
-                        true;
+                    }
 
                 }
-
-            });
-
+            );
 
     }
 
     catch (error) {
-
 
         console.error(
             "Load saved books error:",
@@ -1334,7 +1651,7 @@ async function loadSavedBooks() {
 
 
 /* =========================================
-   LOAD REAL READING TIMES
+   LOAD READING TIMES
 ========================================= */
 
 async function loadReadingTimes() {
@@ -1350,20 +1667,17 @@ async function loadReadingTimes() {
     try {
 
 
-        /* -------------------------
-           FIRESTORE LOCATION
-
-           users
-             └── UID
-                 └── readingSessions
-        ------------------------- */
-
         const sessionsRef =
             collection(
+
                 db,
+
                 "users",
+
                 currentUser.uid,
+
                 "readingSessions"
+
             );
 
 
@@ -1373,13 +1687,7 @@ async function loadReadingTimes() {
             );
 
 
-
-        /* -------------------------
-           TOTAL TIME
-        ------------------------- */
-
         const totals = {};
-
 
 
         snapshot.forEach(
@@ -1422,11 +1730,6 @@ async function loadReadingTimes() {
         );
 
 
-
-        /* -------------------------
-           DISPLAY TIME
-        ------------------------- */
-
         document
             .querySelectorAll(".runtimeValue")
             .forEach(
@@ -1449,11 +1752,9 @@ async function loadReadingTimes() {
                 }
             );
 
-
     }
 
     catch (error) {
-
 
         console.error(
             "Reading time error:",
